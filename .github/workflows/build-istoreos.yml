@@ -16,8 +16,8 @@ env:
   # REPO_BRANCH: main
   FEEDS_CONF: feeds.conf
   CONFIG_FILE: .config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P1_SH: scripts/diy-part1.sh
+  DIY_P2_SH: scripts/diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -183,7 +183,7 @@ jobs:
       id: tag
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H.%M")"
+        echo "::set-output name=release_tag::${{ matrix.ARCHITECTURE }}"
         touch release.txt
         echo "
         💻 架构: ${{ matrix.ARCHITECTURE }}
@@ -194,7 +194,7 @@ jobs:
 
         ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
 
-        🌐 管理地址: 10.0.0.1
+        🌐 管理地址: 192.168.10.1
 
         👤 用户名: root
 
@@ -213,12 +213,12 @@ jobs:
       uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 1
-        keep_minimum_runs: 1
+        keep_minimum_runs: 3
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: 删除自动发布的旧固件
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 4
+        keep_latest: 6
         delete_tags: true

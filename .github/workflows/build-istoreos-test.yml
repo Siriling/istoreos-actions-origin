@@ -90,7 +90,7 @@ jobs:
         sudo chown $USER:$GROUPS ${WORK_DIR}
 
     - name: 克隆源码
-      working-directory: ${{ WORK_DIR }}
+      working-directory: /mnt/workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b ${{ matrix.REPO_BRANCH }} openwrt

@@ -35,10 +35,6 @@ jobs:
         wget -O ./x86/feeds.conf https://fw0.koolcenter.com/iStoreOS/x86_64_efi/feeds.conf
         wget -O ./x86/.config https://fw0.koolcenter.com/iStoreOS/x86_64_efi/config.buildinfo
 
-        mkdir -p ./x86-23.05
-        wget -O ./x86-alpha/feeds.conf https://fw0.koolcenter.com/iStoreOS/alpha/x86_64_efi/feeds.conf
-        wget -O ./x86-alpha/.config https://fw0.koolcenter.com/iStoreOS/alpha/x86_64_efi/config.buildinfo
-
         mkdir -p ./x86-24.10
         wget -O ./x86-alpha/feeds.conf https://fw0.koolcenter.com/iStoreOS/alpha/24.10/x86_64_efi/feeds.conf
         wget -O ./x86-alpha/.config https://fw0.koolcenter.com/iStoreOS/alpha/24.10/x86_64_efi/config.buildinfo

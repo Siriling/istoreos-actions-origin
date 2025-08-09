@@ -33,6 +33,7 @@ jobs:
           # - main
           - istoreos-22.03
           # - istoreos-23.05
+          # - istoreos-24.10
         ARCHITECTURE:
           - rk33xx
           - rk35xx
@@ -40,9 +41,9 @@ jobs:
         os:
           - ubuntu-22.04
         include:
-          - REPO_BRANCH: istoreos-23.05
-            ARCHITECTURE: x86-23.05
-            os: ubuntu-22.04
+          # - REPO_BRANCH: istoreos-23.05
+          #   ARCHITECTURE: x86-23.05
+          #   os: ubuntu-22.04
           - REPO_BRANCH: istoreos-24.10
             ARCHITECTURE: rk33xx-24.10
             os: ubuntu-22.04
